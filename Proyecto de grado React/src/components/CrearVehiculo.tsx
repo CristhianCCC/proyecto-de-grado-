@@ -4,10 +4,7 @@ import { Vehiculo } from "../types/index";
 import VehiculoService from "../services/VehiculoService";
 import { useParams } from "react-router-dom"; // Importamos useParams para capturar el ID de la URL
 
-
 export default function CrearVehiculo() {
-
-
   const { id } = useParams(); // Obtenemos el id del vehículo si estamos editando
   const esEdicion = Boolean(id); // Determina si estamos en modo edición
 
@@ -131,72 +128,93 @@ export default function CrearVehiculo() {
   return (
     <>
       {estado !== null && <MensajesModales estado={estado} />}
-      <form onSubmit={saveVehiculo}>
-        <div className="m-30 px-100 font-bold ">
-          <div className="border shadow-xl flex flex-col p-10 gap-20 text-center bg-gray-700 rounded-2xl">
-            <h1 className="text-white font-bold text-2xl">
+      <div className="flex justify-center items-center min-h-screen px-4">
+        <form onSubmit={saveVehiculo} className="w-full max-w-xl">
+          <div className="flex flex-col gap-6 p-6 bg-gray-700 rounded-2xl shadow-xl text-white">
+            <h1 className="text-center text-2xl font-bold">
               {esEdicion ? "Editar vehículo" : "Creación de vehículo"}
             </h1>
 
-            <input
-              value={vehiculo.nombre}
-              onChange={handleChange}
-              type="text"
-              name="nombre"
-              placeholder="Marca del vehículo ej: Toyota, Ford, etc"
-              className="rounded-2xl bg-neutral-100 outline-neutral-200 text-center p-2"
-            />
-            {/* validando errores en nombre */}
-            {errores.nombre && <p className="text-red-600">{errores.nombre}</p>}
+            {/* Nombre */}
+            <div className="flex flex-col gap-1">
+              <label htmlFor="nombre" className="text-left font-semibold">Marca del vehículo</label>
+              <input
+                id="nombre"
+                value={vehiculo.nombre}
+                onChange={handleChange}
+                type="text"
+                name="nombre"
+                placeholder="Toyota, Ford, etc."
+                className="rounded-2xl bg-neutral-100 text-black p-2"
+              />
+              {/* validando errores en nombre */}
+              {errores.nombre && <p className="text-red-400 text-sm">{errores.nombre}</p>}
+            </div>
 
-            <textarea
-              value={vehiculo.descripcion}
-              onChange={handleChange}
-              name="descripcion"
-              placeholder="Descripción del vehículo"
-              className="rounded-2xl bg-neutral-100 outline-neutral-200 text-center p-2"
-            />
-            {/* validando errores en descripción */}
-            {errores.descripcion && <p className="text-red-600">{errores.descripcion}</p>}
+            {/* Descripción */}
+            <div className="flex flex-col gap-1">
+              <label htmlFor="descripcion" className="text-left font-semibold">Descripción</label>
+              <textarea
+                id="descripcion"
+                value={vehiculo.descripcion}
+                onChange={handleChange}
+                name="descripcion"
+                rows={3}
+                placeholder="Descripción del vehículo"
+                className="rounded-2xl bg-neutral-100 text-black p-2"
+              />
+              {/* validando errores en descripción */}
+              {errores.descripcion && <p className="text-red-400 text-sm">{errores.descripcion}</p>}
+            </div>
 
-            <input
-              value={vehiculo.precio}
-              onChange={handleChange}
-              type="number"
-              name="precio"
-              className="rounded-2xl bg-neutral-100 outline-neutral-200 text-center p-2"
-            />
-            {/* validando errores en precio */}
-            {errores.precio && <p className="text-red-600">{errores.precio}</p>}
+            {/* Precio */}
+            <div className="flex flex-col gap-1">
+              <label htmlFor="precio" className="text-left font-semibold">Precio</label>
+              <input
+                id="precio"
+                value={vehiculo.precio}
+                onChange={handleChange}
+                type="number"
+                name="precio"
+                className="rounded-2xl bg-neutral-100 text-black p-2"
+              />
+              {/* validando errores en precio */}
+              {errores.precio && <p className="text-red-400 text-sm">{errores.precio}</p>}
+            </div>
 
-            <input
-              onChange={handleImageChange}
-              type="file"
-              name="imageURL"
-              accept="image/*"
-              className="rounded-2xl bg-neutral-100 outline-neutral-200 text-center p-2"
-            />
-            {/* validando errores en imagen */}
-            {errores.imageURL && <p className="text-red-600">{errores.imageURL}</p>}
+            {/* Imagen */}
+            <div className="flex flex-col gap-1">
+              <label htmlFor="imageURL" className="text-left font-semibold">Imagen</label>
+              <input
+                id="imageURL"
+                onChange={handleImageChange}
+                type="file"
+                name="imageURL"
+                accept="image/*"
+                className="rounded-2xl bg-neutral-100 text-black p-2"
+              />
+              {/* validando errores en imagen */}
+              {errores.imageURL && <p className="text-red-400 text-sm">{errores.imageURL}</p>}
+            </div>
 
             {/* Mostrar vista previa de imagen */}
             {vehiculo.imageURL && (
               <img
                 src={vehiculo.imageURL}
                 alt="Vista previa"
-                className="w-40 h-40 object-cover mx-auto mt-4 rounded-lg"
+                className="w-[300px] h-[200px] object-cover mx-auto mt-4 rounded-lg"
               />
             )}
 
             <button
               type="submit"
-              className="hover:cursor-pointer bg-indigo-500 shadow-lg shadow-indigo-500/50 mt-10 text-white rounded-2xl p-2 mx-auto w-full hover:text-2xl"
+              className="bg-indigo-500 hover:bg-indigo-600 transition-colors text-white rounded-2xl p-3 font-bold"
             >
               Guardar vehículo
             </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 }

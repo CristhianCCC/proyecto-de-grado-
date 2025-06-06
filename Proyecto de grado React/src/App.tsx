@@ -20,8 +20,9 @@ function App() {
         <Route path="/vehiculos" element={
           <>
           <div className="py-20 text-black text-center font-bold container mx-auto flex justify-around items-center">
-          <h1 className="text-2xl">Listado de vehiculos disponibles</h1>
-          <button className="bg-indigo-500 shadow-lg shadow-indigo-500/50 font-bold text-white text-center p-4 cursor-pointer rounded-2xl hover:text-2xl" onClick={() => crearVehiculo("/vehiculo/crear")}>Crear Producto</button>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">Vehículos Disponibles</h1>          
+          <button className="hover:cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300" onClick={() => crearVehiculo("/vehiculo/crear")}>
+          + Crear Vehículo</button>
         </div>
         <div className="container mx-auto">
         <div className="xl:grid xl:grid-cols-4 lg:grid-cols-3 md:grid md:grid-cols-2 gap-5">

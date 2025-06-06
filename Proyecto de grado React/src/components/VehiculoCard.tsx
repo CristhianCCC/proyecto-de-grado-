@@ -24,13 +24,15 @@ export default function VehiculoCard() {
     return (
         <>  
                 {vehiculo.map(carro => (      
-                    <div key={carro.id} className="max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg bg-white p-4 text-center">
-                <img className="w-100 h-100 object-cover rounded-lg" src={carro.imageURL} alt="imagen vehiculo" />
-                    <h2 className="font-bold text-lg mt-1">{carro.nombre}</h2>
-                    <p className="text-gray-500 text-sm mt-2">{carro.descripcion}</p>
-                    <p className="text-bold-500 font-semibold text-xl">{FormatCurrency(carro.precio)}</p>
+                    <div key={carro.id} className="max-w-xs mx-auto rounded-2xl overflow-hidden shadow-lg bg-white p-4 text-center mt-10">
+                <img className="w-full h-48 object-cover rounded-xl" src={carro.imageURL} alt="imagen vehiculo" />
+                    <h2 className="text-xl font-semibold text-gray-800 mt-4">{carro.nombre}</h2>
+                    <p className="text-gray-500 text-sm mt-2 line-clamp-2">{carro.descripcion}</p>
+                    <p className="text-lime-600 font-bold text-lg mt-3">{FormatCurrency(carro.precio)}</p>
                     <div className="mt-4">
-                    <button className="bg-lime-600 shadow-2xl hover:bg-lime-800 shadow-lime-950 text-white font-bold px-4 py-2 rounded-lg cursor-pointer" onClick={() => vehiculoInfo(`/vehiculo/${carro.id}`)}>Ver producto</button>
+                    <button className="hover:cursor-pointer bg-lime-600 hover:bg-lime-700 text-white font-medium py-2 px-4 mt-4 rounded-lg transition duration-300"onClick={() => vehiculoInfo(`/vehiculo/${carro.id}`)}>
+  Ver más
+</button>
                 </div>
                 
             </div>
