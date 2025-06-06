@@ -19,4 +19,7 @@ const VEHICULO_REST_API_URL = "http://localhost:8080/vehiculo";
         static crearVehiculo (vehiculo: Vehiculo) {
             return axios.post(VEHICULO_REST_API_URL, vehiculo);
         }
+        static editarVehiculo (id: number, vehiculo: Vehiculo) {
+            return axios.put(VEHICULO_REST_API_URL + "/" + id, vehiculo);
+        }
     }

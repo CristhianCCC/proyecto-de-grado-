@@ -1,9 +1,7 @@
 package com.dc.vehiculo.service.impl;
-
 import com.dc.vehiculo.model.Vehiculo;
 import com.dc.vehiculo.repository.VehiculoRepository;
 import com.dc.vehiculo.service.VehiculoService;
-import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +38,7 @@ public class VehiculoServiceImpl implements VehiculoService {
             vehiculoEditado.setNombre(vehiculo.getNombre());
             vehiculoEditado.setDescripcion(vehiculo.getDescripcion());
             vehiculoEditado.setPrecio(vehiculo.getPrecio());
+            vehiculoEditado.setImageURL(vehiculo.getImageURL());
             return vehiculoRepository.save(vehiculoEditado);
         }else {
             return null;

@@ -19,6 +19,7 @@ public class Vehiculo {
 
     private String descripcion;
 
-    @Version
-    private Integer version;
+    @Lob
+    private String imageURL;
+
 }
