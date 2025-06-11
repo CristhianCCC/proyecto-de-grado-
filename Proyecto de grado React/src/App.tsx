@@ -5,6 +5,7 @@ import VehiculoCard from "./components/VehiculoCard"
 import VehiculoInfo from "./components/VehiculoInfo"
 import { useNavigate } from "react-router"
 import CrearVehiculo from "./components/CrearVehiculo"
+import Contacto from "./components/Contacto"
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/vehiculo/crear" element={<CrearVehiculo/>} />
         {/*Ruta para editar un vehiculo*/}
         <Route path="/vehiculo/crear/:id" element={<CrearVehiculo/>}/>
+        <Route path="/contacto" element={<Contacto />} />
     </Routes>
     <Footer/>
     </>
