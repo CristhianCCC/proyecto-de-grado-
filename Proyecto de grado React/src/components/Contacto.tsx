@@ -47,6 +47,7 @@ const Contacto: React.FC = () => {
             className="w-full p-2 border border-gray-300 rounded-md"
           />
         </div>
+
         <div>
           <label className="block text-gray-700">Correo electrónico</label>
           <input
@@ -56,6 +57,17 @@ const Contacto: React.FC = () => {
             className="w-full p-2 border border-gray-300 rounded-md"
           />
         </div>
+
+        <div>
+          <label className="block text-gray-700">Teléfono</label>
+          <input
+            type="tel"
+            name="phone"
+            required
+            className="w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+
         <div>
           <label className="block text-gray-700">Mensaje</label>
           <textarea
@@ -65,6 +77,7 @@ const Contacto: React.FC = () => {
             className="w-full p-2 border border-gray-300 rounded-md"
           />
         </div>
+
         <button
           type="submit"
           className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
