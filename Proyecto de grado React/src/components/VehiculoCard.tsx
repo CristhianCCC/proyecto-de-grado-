@@ -30,9 +30,7 @@ export default function VehiculoCard() {
                     <p className="text-gray-500 text-sm mt-2 line-clamp-2">{carro.descripcion}</p>
                     <p className="text-lime-600 font-bold text-lg mt-3">{FormatCurrency(carro.precio)}</p>
                     <div className="mt-4">
-                    <button className="hover:cursor-pointer bg-lime-600 hover:bg-lime-700 text-white font-medium py-2 px-4 mt-4 rounded-lg transition duration-300"onClick={() => vehiculoInfo(`/vehiculo/${carro.id}`)}>
-  Ver más
-</button>
+                    <button className="hover:cursor-pointer bg-lime-600 hover:bg-lime-700 text-white font-medium py-2 px-4 mt-4 rounded-lg transition duration-300"onClick={() => vehiculoInfo(`/vehiculo/${carro.id}`)}>Ver más</button>
                 </div>
                 
             </div>

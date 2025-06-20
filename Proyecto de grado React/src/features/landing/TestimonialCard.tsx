@@ -6,7 +6,7 @@ interface TestimonialCardProps {
 
 const TestimonialCard = ({ name, text, image }: TestimonialCardProps) => {
   return (
-    <div className="w-[300px] bg-white text-black shadow-md rounded-2xl p-4">
+    <div className="w-[300px] bg-white text-black shadow-md rounded-2xl p-4 flex flex-col items-center">
       <img
         src={image}
         alt={name}

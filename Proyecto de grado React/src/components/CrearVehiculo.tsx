@@ -125,6 +125,8 @@ export default function CrearVehiculo() {
     }
   };
 
+  
+
   return (
     <>
       {estado !== null && <MensajesModales estado={estado} />}
@@ -208,7 +210,7 @@ export default function CrearVehiculo() {
 
             <button
               type="submit"
-              className="bg-indigo-500 hover:bg-indigo-600 transition-colors text-white rounded-2xl p-3 font-bold"
+              className="hover:cursor-pointer bg-blue-600 hover:bg-blue-700 transition-colors text-white rounded-lg p-3 font-bold"
             >
               Guardar vehículo
             </button>

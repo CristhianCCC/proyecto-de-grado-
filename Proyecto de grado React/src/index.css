@@ -5,3 +5,6 @@ body{
     background-color: #f8fafc;
 }
 
+.header {
+    filter: brightness(60%);
+}

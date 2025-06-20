@@ -3,28 +3,26 @@ import TestimonialCard from "./TestimonialCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const TestimonialsSection = () => {
-  // Tipado de scrollRef como referencia a un div
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   const testimonials = [
     {
       name: "Juan Pérez",
       text: "Excelente servicio, todo fue muy rápido y seguro.",
-      image: "/assets/juan.png",
+      image: "/images/perfil2.png",
     },
     {
       name: "Laura Martínez",
       text: "Muy buen trato y el carro estaba impecable.",
-      image: "/assets/laura.png",
+      image: "/images/perfil1.png",
     },
     {
       name: "Carlos Ruiz",
       text: "La experiencia fue genial. Repetiré seguro.",
-      image: "/assets/carlos.png",
+      image: "/images/perfil3.png",
     },
   ];
 
-  // Tipado para la función scroll
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const amount = 300;
@@ -36,8 +34,8 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-16 px-6 bg-gray-900 text-white relative">
-      <h2 className="text-3xl font-bold text-center mb-6">
+    <section className="py-12 px-4 sm:px-6 md:px-10 bg-gray-900 text-white relative">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
         Testimonios de nuestros clientes
       </h2>
 
@@ -50,16 +48,19 @@ const TestimonialsSection = () => {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Contenedor scroll horizontal */}
+        {/* Scroll horizontal responsivo */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto space-x-6 pb-4 max-w-full scroll-smooth"
-          style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
+          className="flex overflow-x-auto space-x-4 sm:space-x-6 pb-4 max-w-full scroll-smooth px-1"
+          style={{
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+          }}
         >
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="snap-center shrink-0"
+              className="snap-center shrink-0 w-[85%] sm:w-[60%] md:w-[40%] lg:w-[33%]"
               style={{ scrollSnapAlign: "center" }}
             >
               <TestimonialCard {...testimonial} />

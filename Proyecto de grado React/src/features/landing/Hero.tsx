@@ -1,23 +1,34 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 
 export default function Hero() {
+
+  const images = [
+    "images/header1.jpg",
+    "images/header2.jpg",    
+    "images/header3.jpg"
+  ]
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+
+  /*para que las imagenes cambien cada 3 segundos*/
+  useEffect(() => {
+    const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+
+
+    return () => clearInterval(interval); 
+    }, []);
+
+
+
   return (
-    <section className="h-screen flex bg-white">
-      <div 
-        className="w-1/2 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/Carros.jpg')" }}
-      ></div>
-      
-      <div className="w-1/2 flex flex-col justify-center items-center text-center px-6">
-        <h1 className="text-5xl font-bold mb-4">Dimmecars</h1>
-        
-        <Link 
-          to="/vehiculos" 
-          className="bg-green-700 text-white px-6 py-3 rounded-lg text-lg hover:bg-green-800 transition duration-300"
-        >
-          Catálogo
-        </Link>
+      <div className="header">
+        <img className=" md:h-200 w-full" src={images[currentIndex]} alt="Header"/>
       </div>
-    </section>
-  );
+);
 }
+
+
