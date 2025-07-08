@@ -2,6 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
+        {/* Grid de 3 columnas */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Columna 1: Información de contacto */}
           <div>
@@ -25,7 +26,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          
+
           {/* Columna 2: Horarios */}
           <div>
             <h3 className="text-xl font-bold mb-4">Horarios</h3>
@@ -36,7 +37,7 @@ export default function Footer() {
               <li className="text-green-400">Soporte 24/7 en redes</li>
             </ul>
           </div>
-          
+
           {/* Columna 3: Enlaces rápidos */}
           <div>
             <h3 className="text-xl font-bold mb-4">Enlaces rápidos</h3>
@@ -49,7 +50,20 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        
+
+        {/* Botón debajo del grid */}
+        <div className="mt-6">
+          <a
+            href="https://maps.app.goo.gl/z18optBguQnuMp3P6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition text-sm"
+          >
+            Ver ubicación en Google Maps
+          </a>
+        </div>
+
+        {/* Footer legal */}
         <div className="border-t border-gray-700 mt-8 pt-6 text-center">
           <p>© {new Date().getFullYear()} Dimmecars. Todos los derechos reservados.</p>
         </div>
