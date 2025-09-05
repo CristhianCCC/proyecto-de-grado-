@@ -10,7 +10,7 @@ export default function NavBar() {
     const imagenNav ="/images/DimeCarsLogo.png"
 
     return (
-        <nav className="bg-black py-4">
+        <nav className="bg-gradient-to-b from-gray-900 via-gray-950 to-black">
             <div className="container max-w-6xl mx-auto flex items-center justify-between">
             <Link to = "/">
             <img src={imagenNav} className="h-40 w-50" alt="Logo DIMECARS" />

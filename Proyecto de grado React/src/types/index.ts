@@ -3,6 +3,7 @@ export type Vehiculo = {
     nombre: string,
     precio: number,
     descripcion: string,
+    puestos: number,
     imageURL: string
 }
 

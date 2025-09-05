@@ -2,17 +2,13 @@ import TarjetaBeneficio from './TarjetaBeneficio';
 
 const Beneficios = () => {
   return (
-    <section className="py-12 bg-white text-center">
-      {/* Contenedor central para limitar el ancho y centrar el contenido */}
+    <section className="py-16 bg-gray-50 text-center">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Título principal */}
-        <h2 className="text-3xl font-bold mb-10">
+        <h2 className="text-4xl font-extrabold text-gray-800 mb-12">
           ¿Por qué adquirir nuestros servicios?
         </h2>
 
-        {/* Grid de tarjetas */}
-        <div className="flex flex-wrap justify-center">
-          {/* Primera fila */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <TarjetaBeneficio
             titulo="Variedad de Vehículos"
             descripcion="Amplia gama de autos desde compactos hasta SUVs y modelos de lujo, adaptados a distintas necesidades y presupuestos."
@@ -25,8 +21,6 @@ const Beneficios = () => {
             titulo="Proceso de Reserva Sencillo"
             descripcion="Plataforma digital intuitiva y atención eficiente, facilitando la reserva rápida y sin complicaciones."
           />
-
-          {/* Segunda fila */}
           <TarjetaBeneficio
             titulo="Atención Personalizada"
             descripcion="Asistencia al cliente dedicada para garantizar una experiencia de alquiler satisfactoria y sin estrés."
@@ -46,4 +40,3 @@ const Beneficios = () => {
 };
 
 export default Beneficios;
-

@@ -1,10 +1,15 @@
+import { motion } from "motion/react";
+
 type MensajesModalesProps = {
   estado: boolean
 };
 
 export default function MensajesModales({ estado }: MensajesModalesProps) {
   return (
-    <div
+    <motion.div
+      transition={{ duration: 0.3 }}
+      initial = {{ opacity: 0, y: 20 }}
+      animate = {{ opacity: 1, y: 0 }}
       className={`${
         estado ? " bg-green-100 border-green-500 text-green-900" : "bg-red-100 border-red-500 text-red-900"
       } border-t-4 rounded-b px-4 py-3 shadow-md`}
@@ -26,6 +31,6 @@ export default function MensajesModales({ estado }: MensajesModalesProps) {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

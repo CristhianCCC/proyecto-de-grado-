@@ -1,46 +1,74 @@
-import FAQCard from "./FAQCard";
+// Beneficios.tsx
+import { motion } from "framer-motion";
+import TarjetaBeneficio from "./TarjetaBeneficio";
 
-const FAQSection = () => {
-  const faqs = [
-    {
-      question: "¿Cuáles son los requisitos para alquilar un vehículo?",
-      answer:
-        "Edad mínima, licencia de conducir vigente y método de pago aceptado.",
-    },
-    {
-      question: "¿Cuáles son los métodos de pago aceptados?",
-      answer: "Tarjetas de crédito/débito, transferencias o pagos digitales.",
-    },
-    {
-      question: "¿Qué incluye el costo del alquiler?",
-      answer:
-        "Seguro, kilometraje, asistencia en carretera y otros beneficios.",
-    },
-    {
-      question: "¿Los vehículos incluyen seguro?",
-      answer: "Sí, todos nuestros vehículos incluyen seguro básico.",
-    },
-  ];
+const beneficios = [
+  {
+    titulo: "Variedad de Vehículos",
+    descripcion:
+      "Amplia gama de autos desde compactos hasta SUVs y modelos de lujo, adaptados a distintas necesidades y presupuestos.",
+  },
+  {
+    titulo: "Precios Competitivos",
+    descripcion:
+      "Tarifas accesibles y opciones de pago flexibles que permiten encontrar soluciones económicas sin sacrificar calidad.",
+  },
+  {
+    titulo: "Proceso de Reserva Sencillo",
+    descripcion:
+      "Plataforma digital intuitiva y atención eficiente, facilitando la reserva rápida y sin complicaciones.",
+  },
+  {
+    titulo: "Atención Personalizada",
+    descripcion:
+      "Asistencia al cliente dedicada para garantizar una experiencia de alquiler satisfactoria y sin estrés.",
+  },
+  {
+    titulo: "Seguridad Garantizada",
+    descripcion:
+      "Vehículos inspeccionados y mantenidos regularmente, brindando confianza y tranquilidad durante el uso.",
+  },
+  {
+    titulo: "Flexibilidad de Entrega",
+    descripcion:
+      "Opciones de entrega y devolución en distintos puntos, ajustándose a la conveniencia del cliente.",
+  },
+];
 
+const Beneficios = () => {
   return (
-    <section className="bg-zinc-900 text-white py-16 px-4">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">Preguntas frecuentes</h2>
-        <p className="text-lg mb-12">Estamos aquí para resolver tus dudas!</p>
-      </div>
+    <section className="py-16 bg-gray-50 text-center">
+      <div className="max-w-6xl mx-auto px-4">
+        <motion.h2
+          className="text-4xl font-extrabold text-gray-800 mb-12"
+          initial={{ opacity: 0, y: -30 }}
+          transition={{ duration: 0.8 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.5 }}
+          viewport={{ once: true }}
+        >
+          ¿Por qué adquirir nuestros servicios?
+        </motion.h2>
 
-      <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {faqs.map((faq, index) => (
-          <FAQCard
-            key={index}
-            icon="❓"
-            question={faq.question}
-            answer={faq.answer}
-          />
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {beneficios.map((b, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.15, // animación en cascada
+              }}
+              viewport={{ once: true }}
+            >
+              <TarjetaBeneficio titulo={b.titulo} descripcion={b.descripcion} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default FAQSection;
+export default Beneficios;

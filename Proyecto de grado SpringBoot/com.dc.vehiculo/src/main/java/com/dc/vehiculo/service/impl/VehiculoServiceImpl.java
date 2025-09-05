@@ -38,6 +38,7 @@ public class VehiculoServiceImpl implements VehiculoService {
             vehiculoEditado.setNombre(vehiculo.getNombre());
             vehiculoEditado.setDescripcion(vehiculo.getDescripcion());
             vehiculoEditado.setPrecio(vehiculo.getPrecio());
+            vehiculoEditado.setPuestos(vehiculo.getPuestos());
             vehiculoEditado.setImageURL(vehiculo.getImageURL());
             return vehiculoRepository.save(vehiculoEditado);
         }else {

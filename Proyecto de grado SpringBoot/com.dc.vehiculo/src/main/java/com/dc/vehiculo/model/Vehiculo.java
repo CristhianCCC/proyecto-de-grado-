@@ -19,6 +19,8 @@ public class Vehiculo {
 
     private String descripcion;
 
+    private Integer puestos;
+
     @Lob
     private String imageURL;
 

@@ -4,6 +4,8 @@ import { Vehiculo } from "../types";
 import { Link, useParams } from "react-router-dom";
 import FormatCurrency from "../helpers";
 import MensajesModales from "./MensajesModales";
+import { easeInOut, motion } from "motion/react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function VehiculoInfo() {
   const { id } = useParams();
@@ -13,6 +15,7 @@ export default function VehiculoInfo() {
     nombre: "",
     descripcion: "",
     precio: 0,
+    puestos: 0,
     imageURL: "",
   });
   const [estado, setEstado] = useState<boolean | null>(null);
@@ -70,27 +73,55 @@ export default function VehiculoInfo() {
       {estado !== null && <MensajesModales estado={estado} />}
 
       <div className="lg:pt-40 flex flex-col lg:flex-row items-center justify-center px-4 py-10 md:px-10 lg:px-20 max-w-6xl mx-auto">
-                  <img
+            <motion.img
+            initial= {{opacity: 0, y: 20}}
+            animate = {{opacity: 1, y: 0}}
+            transition={{ duration: 0.6, ease: easeInOut, delay: 0.4 }}
+            whileHover={{ scale: 1.2}}
+            whileTap={{ scale: 0.9, opacity: 0.5 }}
             src={vehiculoId.imageURL}
             alt={`Imagen del vehículo ${vehiculoId.nombre}`}
             className="w-full max-w-[500px] h-[300px] rounded-xl shadow-md object-cover mb-10"
           />
 
         <div className="w-full text-center space-y-6">
-            <h1 className="text-4xl font-bold text-gray-800">
+            <motion.h1 
+              initial = {{ opacity: 0, y: 20 }}
+              animate = {{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-4xl font-bold text-gray-800">
               {vehiculoId.nombre}
-            </h1>
+            </motion.h1>
 
-            <p className="text-lg text-gray-600 break-words whitespace-pre-line mx-10">{vehiculoId.descripcion}</p>
+            <motion.p 
+              initial = {{ opacity: 0, y: 20 }}
+              animate = {{ opacity: 1, y: 0 }}
+              transition={{duration:0.6, delay: 0.6}}
+              className="text-lg text-gray-600 break-words whitespace-pre-line mx-10">
+              {vehiculoId.descripcion}</motion.p>
 
-            <p className="text-3xl font-bold text-lime-600">
+            <motion.p 
+              initial = {{ opacity: 0, y: 20 }}
+              animate = {{ opacity: 1, y: 0 }}
+              transition={{duration:0.6, delay: 0.6}}
+              className="text-lg text-gray-600 break-words whitespace-pre-line mx-10">
+              Espacio para {vehiculoId.puestos} personas</motion.p>
+
+            <motion.p 
+              initial = {{ opacity: 0, y: 20 }}
+              animate = {{ opacity: 1, y: 0 }}
+              transition={{duration:0.6, delay: 0.6}}
+            className="text-3xl font-bold text-lime-600">
               Precio: {FormatCurrency(vehiculoId.precio)}
-            </p>
+            </motion.p>
 
             {isAuthenticated() && (
               <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
-              <button
-                className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-300"
+              <motion.button
+                initial = {{ opacity: 0, y: 50 }}
+                animate = {{ opacity: 1, y: 0 }}
+                transition={{duration:0.6, delay: 0.6}}
+                className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-300 hover:cursor-pointer"
                 onClick={() => {
                   if (vehiculoId.id !== undefined) {
                     editarVehiculo(vehiculoId.id);
@@ -98,10 +129,13 @@ export default function VehiculoInfo() {
                 }}
               >
                 Editar
-              </button>
+              </motion.button>
               
-                <button
-                className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-300"
+                <motion.button
+                initial = {{ opacity: 0, y: 50 }}
+                animate = {{ opacity: 1, y: 0 }}
+                transition={{duration:0.6, delay: 0.6}}
+                className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-300 hover:cursor-pointer"
                 onClick={() => {
                   if (vehiculoId.id !== undefined) {
                     EliminarVehiculo(vehiculoId.id);
@@ -109,12 +143,36 @@ export default function VehiculoInfo() {
                 }}
               >
                 Eliminar
-              </button>
+              </motion.button>
             </div>
-            )}        {!isAuthenticated() && (
-                      <Link to={"/contacto"} className="bg-lime-600 hover:bg-lime-700 p-2 text-white font-bold rounded-lg">Contactanos para agendar la reserva</Link>
-            )}
-          </div>
+)}       
+{!isAuthenticated() && (
+  <div className="flex flex-col justify-center sm:flex-row gap-3 m-5">
+    {/* Botón Contacto */}
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+      <Link
+        to="/contacto"
+        className="bg-gray-800 hover:bg-gray-700 text-white px-5 py-3 rounded-lg font-semibold shadow-md text-center block"
+      >
+        Contáctanos para agendar la reserva
+      </Link>
+    </motion.div>
+
+    {/* Botón WhatsApp */}
+    <motion.a
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      href="https://wa.me/573001234567" // Cambia al número de WhatsApp real
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-lg font-semibold shadow-md flex items-center justify-center gap-2"
+    >
+      <FaWhatsapp className="text-xl" />
+      Escríbenos por WhatsApp
+    </motion.a>
+  </div>
+)}
+</div>
       </div>
     </>
   );

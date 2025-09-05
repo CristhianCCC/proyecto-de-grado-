@@ -5,6 +5,7 @@ import TestimonialSection from "../features/landing/TestimonialSection";
 import FAQSection from "../features/landing/FAQSection";
 import Footer from "../features/landing/Footer";
 import NavBar from "../components/NavBar";
+import Acerca from "../features/landing/Acerca";
 
 
 export default function LandingPage() {
@@ -12,6 +13,7 @@ export default function LandingPage() {
     <div>
       <NavBar />
       <Hero />
+      <Acerca />
       <Beneficios />
       <TestimonialSection />
       <FAQSection />
