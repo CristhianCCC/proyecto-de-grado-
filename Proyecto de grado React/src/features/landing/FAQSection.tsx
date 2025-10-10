@@ -1,68 +1,53 @@
-// Beneficios.tsx
 import { motion } from "framer-motion";
-import TarjetaBeneficio from "./TarjetaBeneficio";
+import FAQCard, { FAQCardProps } from "./FAQCard";
+import { HelpCircle, Clock, Car, CreditCard } from "lucide-react";
 
-const beneficios = [
+const faqs: FAQCardProps[] = [
   {
-    titulo: "Variedad de Vehículos",
-    descripcion:
-      "Amplia gama de autos desde compactos hasta SUVs y modelos de lujo, adaptados a distintas necesidades y presupuestos.",
+    icon: <HelpCircle />,
+    question: "¿Cómo puedo reservar un vehículo?",
+    answer: "Puedes reservar en línea a través de nuestra plataforma en pocos pasos sencillos.",
   },
   {
-    titulo: "Precios Competitivos",
-    descripcion:
-      "Tarifas accesibles y opciones de pago flexibles que permiten encontrar soluciones económicas sin sacrificar calidad.",
+    icon: <Clock />,
+    question: "¿Con cuánta anticipación debo reservar?",
+    answer: "Recomendamos reservar con al menos 24 horas de anticipación para asegurar disponibilidad.",
   },
   {
-    titulo: "Proceso de Reserva Sencillo",
-    descripcion:
-      "Plataforma digital intuitiva y atención eficiente, facilitando la reserva rápida y sin complicaciones.",
+    icon: <Car />,
+    question: "¿Qué documentos necesito?",
+    answer: "Debes presentar tu licencia de conducir vigente y un documento de identidad.",
   },
   {
-    titulo: "Atención Personalizada",
-    descripcion:
-      "Asistencia al cliente dedicada para garantizar una experiencia de alquiler satisfactoria y sin estrés.",
-  },
-  {
-    titulo: "Seguridad Garantizada",
-    descripcion:
-      "Vehículos inspeccionados y mantenidos regularmente, brindando confianza y tranquilidad durante el uso.",
-  },
-  {
-    titulo: "Flexibilidad de Entrega",
-    descripcion:
-      "Opciones de entrega y devolución en distintos puntos, ajustándose a la conveniencia del cliente.",
+    icon: <CreditCard />,
+    question: "¿Cuáles son los métodos de pago?",
+    answer: "Aceptamos tarjetas de crédito, débito y transferencias bancarias.",
   },
 ];
 
-const Beneficios = () => {
+const PreguntasFrecuentes = () => {
   return (
-    <section className="py-16 bg-gray-50 text-center">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-16 bg-gray-900 text-white">
+      <div className="max-w-4xl mx-auto px-4">
         <motion.h2
-          className="text-4xl font-extrabold text-gray-800 mb-12"
+          className="text-4xl font-extrabold mb-12 text-center"
           initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.5 }}
-          viewport={{ once: true }}
         >
-          ¿Por qué adquirir nuestros servicios?
+          Preguntas Frecuentes
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {beneficios.map((b, i) => (
+        <div className="space-y-6">
+          {faqs.map((f, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.15, // animación en cascada
-              }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
             >
-              <TarjetaBeneficio titulo={b.titulo} descripcion={b.descripcion} />
+              <FAQCard icon={f.icon} question={f.question} answer={f.answer} />
             </motion.div>
           ))}
         </div>
@@ -71,4 +56,4 @@ const Beneficios = () => {
   );
 };
 
-export default Beneficios;
+export default PreguntasFrecuentes;

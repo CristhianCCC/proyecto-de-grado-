@@ -13,13 +13,14 @@ export default function Login() {
     e.preventDefault();
     try {
       const authHeader = "Basic " + btoa(`${usuario}:${contrasena}`);
-      localStorage.setItem("auth", authHeader);
-
+      
       await axios.get("http://localhost:8080/vehiculo", {
         headers: {
           Authorization: authHeader,
         },
       });
+
+      localStorage.setItem("auth", authHeader);
 
       navigate("/vehiculos");
     } catch (err) {
