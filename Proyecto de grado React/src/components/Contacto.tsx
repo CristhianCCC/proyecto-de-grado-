@@ -12,10 +12,10 @@ const Contacto: React.FC = () => {
     if (formRef.current) {
       emailjs
         .sendForm(
-          "service_vv841ws",    // Reemplaza esto
-          "template_28p9epp",   // Reemplaza esto
+          "service_8ms7ghx",    // Reemplaza esto
+          "template_qmkbkwj",   // Reemplaza esto
           formRef.current,
-          "JuPOktLpbFRMWzi7H"     // Reemplaza esto
+          "Ny1Iot6OjebyOEAV6"     // Reemplaza esto
         )
         .then(
           () => {
